@@ -34,7 +34,7 @@
                 { "include": "#ARG-M" },
                 {
                     "begin": ",",
-                    "end": "(?=[,\\)])",
+                    "end": "(?=\\))",
                     "patterns": [
                         { "include": "#ARG-M" }
                     ]
@@ -80,7 +80,7 @@
         "TO-ARGS-M": {
             "comment": "The TO-ARGS- states match a comma, and then enter the corresponding ARGS- state",
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-M" }
             ]
@@ -88,7 +88,7 @@
 
         "TO-ARGS-S": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-S" }
             ]
@@ -96,7 +96,7 @@
 
         "TO-ARGS-MM": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MM" }
             ]
@@ -104,7 +104,7 @@
 
         "TO-ARGS-MS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MS" }
             ]
@@ -112,7 +112,7 @@
 
         "TO-ARGS-SM": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-SM" }
             ]
@@ -120,7 +120,7 @@
 
         "TO-ARGS-SS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-SS" }
             ]
@@ -128,7 +128,7 @@
 
         "TO-ARGS-MMM": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MMM" }
             ]
@@ -136,7 +136,7 @@
 
         "TO-ARGS-MMS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MMS" }
             ]
@@ -144,7 +144,7 @@
 
         "TO-ARGS-MSS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MSS" }
             ]
@@ -152,7 +152,7 @@
 
         "TO-ARGS-SSM": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-SSM" }
             ]
@@ -160,7 +160,7 @@
 
         "TO-ARGS-SSS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-SSS" }
             ]
@@ -168,7 +168,7 @@
 
         "TO-ARGS-MMMM": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MMMM" }
             ]
@@ -176,7 +176,7 @@
 
         "TO-ARGS-MMSS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MMSS" }
             ]
@@ -184,7 +184,7 @@
 
         "TO-ARGS-MSSM": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MSSM" }
             ]
@@ -192,7 +192,7 @@
 
         "TO-ARGS-MSSS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MSSS" }
             ]
@@ -200,7 +200,7 @@
 
         "TO-ARGS-MMMMM": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MMMMM" }
             ]
@@ -208,7 +208,7 @@
 
         "TO-ARGS-MMMSS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MMMSS" }
             ]
@@ -216,7 +216,7 @@
 
         "TO-ARGS-MVARARGS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-MVARARGS" }
             ]
@@ -224,7 +224,7 @@
 
         "TO-ARGS-SVARARGS": {
             "begin": ",",
-            "end": "(?=[,\\)])",
+            "end": "(?=\\))",
             "patterns": [
                 { "include": "#ARGS-SVARARGS" }
             ]

@@ -465,7 +465,7 @@
 			<key>comment</key>
 			<string>The TO-ARGS- states match a comma, and then enter the corresponding ARGS- state</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -479,7 +479,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -493,7 +493,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -507,7 +507,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -521,7 +521,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -535,7 +535,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -549,7 +549,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -563,7 +563,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -577,7 +577,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -591,7 +591,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -605,7 +605,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -619,7 +619,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -633,7 +633,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -647,7 +647,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -661,7 +661,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -675,7 +675,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -689,7 +689,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -703,7 +703,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -717,7 +717,7 @@
 			<key>begin</key>
 			<string>,</string>
 			<key>end</key>
-			<string>(?=[,\)])</string>
+			<string>(?=\))</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1662,7 +1662,7 @@
 					<key>begin</key>
 					<string>,</string>
 					<key>end</key>
-					<string>(?=[,\)])</string>
+					<string>(?=\))</string>
 					<key>patterns</key>
 					<array>
 						<dict>
