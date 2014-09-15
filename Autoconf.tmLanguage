@@ -766,14 +766,14 @@
 		<key>am-macros-noargs</key>
 		<dict>
 			<key>match</key>
-			<string>\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|CC_C_O|GCJ|LEX)|SILENT_RULES|WITH_(DMALLOC|REGEX))</string>
+			<string>\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|CC_C_O|GCJ|LEX)|SILENT_RULES|WITH_DMALLOC)</string>
 			<key>name</key>
 			<string>keyword.other.macro.automake</string>
 		</dict>
 		<key>am-macros-obsolete</key>
 		<dict>
 			<key>match</key>
-			<string>\bAM_(C_PROTOTYPES|CONFIG_HEADER|HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL|PATH_CHECK|PROG_(LIBTOOL|MKDIR_P)|SYS_POSIX_TERMIOS|(DIS|EN)ABLE_(STATIC|SHARED))</string>
+			<string>\bAM_(C_PROTOTYPES|CONFIG_HEADER|HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL|PATH_CHECK|PROG_(LIBTOOL|MKDIR_P)|SYS_POSIX_TERMIOS|WITH_REGEX|(DIS|EN)ABLE_(STATIC|SHARED))</string>
 			<key>name</key>
 			<string>invalid.deprecated.macro.automake</string>
 		</dict>

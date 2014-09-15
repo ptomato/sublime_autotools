@@ -823,7 +823,7 @@
 
         "am-macros-noargs": {
             "name": "keyword.other.macro.automake",
-            "match": "\\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|CC_C_O|GCJ|LEX)|SILENT_RULES|WITH_(DMALLOC|REGEX))"
+            "match": "\\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|CC_C_O|GCJ|LEX)|SILENT_RULES|WITH_DMALLOC)"
         },
 
         "am-macros-optargs": {
@@ -838,7 +838,7 @@
 
         "am-macros-obsolete": {
             "name": "invalid.deprecated.macro.automake",
-            "match": "\\bAM_(C_PROTOTYPES|CONFIG_HEADER|HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL|PATH_CHECK|PROG_(LIBTOOL|MKDIR_P)|SYS_POSIX_TERMIOS|(DIS|EN)ABLE_(STATIC|SHARED))"
+            "match": "\\bAM_(C_PROTOTYPES|CONFIG_HEADER|HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL|PATH_CHECK|PROG_(LIBTOOL|MKDIR_P)|SYS_POSIX_TERMIOS|WITH_REGEX|(DIS|EN)ABLE_(STATIC|SHARED))"
         },
 
         "misc-macros-noargs": {
