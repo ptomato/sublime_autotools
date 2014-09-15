@@ -866,7 +866,7 @@
 		<key>func-mm</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(AC_(?:ARG_VAR|BEFORE|CHECK_ALIGNOF|CONFIG_TESTDIR|DIAGNOSE|ERLANG_(?:PATH_ERLC?|SUBST_INSTALL_LIB_SUBDIR)|F(?:77|C)_FUNC|LANG_(?:CALL|PROGRAM)|MSG_(?:ERROR|FAILURE)|PROG_FC)|AH_(?:TEMPLATE|VERBATIM)|AU_ALIAS|AS_(?:BOX|ESCAPE|TMPDIR|VAR_(?:APPEND|COPY|PUSHDEF))|m4_(?:append_uniq_w|apply|assert|change(?:com|quote)|(?:list)?cmp|(?:copy|rename)(?:_force)?|default(?:_nblank)?(?:_quoted)?|define(?:_default)?|defun|divert_(?:once|text)|fatal|index|map(?:all)?|pushdef|set_(?:contents|difference|dump|intersection|map|union)|split|stack_foreach(?:_lifo)?|text_box|version_compare|warn)|AT_DATA|GTK_DOC_CHECK|IT_PROG_INTLTOOL)\s*(\()</string>
+			<string>\b(AC_(?:ARG_VAR|BEFORE|CHECK_ALIGNOF|CONFIG_TESTDIR|DIAGNOSE|ERLANG_(?:PATH_ERLC?|SUBST_INSTALL_LIB_SUBDIR)|F(?:77|C)_FUNC|LANG_(?:CALL|PROGRAM)|MSG_(?:ERROR|FAILURE)|PROG_FC)|AH_(?:TEMPLATE|VERBATIM)|AU_ALIAS|AS_(?:BOX|ESCAPE|TMPDIR|VAR_(?:APPEND|COPY|PUSHDEF))|m4_(?:append_uniq_w|apply|assert|change(?:com|quote)|(?:list)?cmp|(?:copy|rename)(?:_force)?|default(?:_nblank)?(?:_quoted)?|define(?:_default)?|defun|divert_(?:once|text)|fatal|index|map(?:all)?|pushdef|set_(?:contents|difference|dump|intersection|map|union)|split|stack_foreach(?:_lifo)?|text_box|version_compare|warn)|AT_DATA|AM_MISSING_PROG|GTK_DOC_CHECK|IT_PROG_INTLTOOL)\s*(\()</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
