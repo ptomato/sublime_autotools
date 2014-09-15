@@ -766,7 +766,7 @@
 		<key>am-macros-noargs</key>
 		<dict>
 			<key>match</key>
-			<string>\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AS|CC_C_O|GCJ|LEX)|SILENT_RULES|WITH_(DMALLOC|REGEX))</string>
+			<string>\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|CC_C_O|GCJ|LEX)|SILENT_RULES|WITH_(DMALLOC|REGEX))</string>
 			<key>name</key>
 			<string>keyword.other.macro.automake</string>
 		</dict>
