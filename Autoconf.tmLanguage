@@ -59,7 +59,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#m4</string>
+					<string>#m4-pure</string>
 				</dict>
 			</array>
 		</dict>

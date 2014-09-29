@@ -73,7 +73,7 @@
             "comment": "This is an argument containing a mix of M4 and shell code.",
             "patterns": [
                 { "include": "#m4-quoted-shell" },
-                { "include": "#m4" }
+                { "include": "#m4-pure" }
             ]
         },
 
