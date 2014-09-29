@@ -900,11 +900,339 @@
                     "match": "\\]"
                 }
             ]
+        },
+
+        "shell-interpolation": {
+            "comment": "This is a copy of some of the patterns from the #interpolation pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+            "patterns": [
+                {
+                    "name": "string.interpolated.backtick.shell",
+                    "begin": "`",
+                    "end": "`",
+                    "beginCaptures": {
+                        "0": { "name": "punctuation.definition.string.begin.shell" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.string.end.shell" }
+                    },
+                    "patterns": [
+                        {
+                            "match": "\\\\[`\\\\$]",
+                            "name": "constant.character.escape.shell"
+                        },
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "string.interpolated.dollar.shell",
+                    "begin": "\\$\\(",
+                    "end": "\\)",
+                    "beginCaptures": {
+                        "0": { "name": "punctuation.definition.string.begin.shell" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.string.end.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                }
+            ]
+        },
+
+        "shell-compound-command": {
+            "comment": "This is a copy of some of the patterns from #compound-command from source.shell, so that anywhere shell includes $self, M4 code is also legal.",
+            "patterns": [
+                {
+                    "name": "meta.scope.logical-expression.shell",
+                    "begin": "(\\[{2})",
+                    "end": "(\\]{2})",
+                    "captures": {
+                        "1": { "name": "punctuation.definition.logical-expression.shell" }
+                    },
+                    "patterns": [
+                        { "include": "source.shell.logical-expression" },
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.scope.subshell.shell",
+                    "begin": "(\\()",
+                    "end": "(\\))",
+                    "captures": {
+                        "1": { "name": "punctuation.definition.subshell.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.scope.group.shell",
+                    "begin": "(?<=\\s|^)(\\{)(?=\\s|$)",
+                    "end": "(?<=^|;)\\s*(\\})",
+                    "captures": {
+                        "1": { "name": "punctuation.definition.group.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                }
+            ]
+        },
+
+        "shell-pathname": {
+            "comment": "This is a copy of one of the patterns from #pathname from source.shell, so that anywhere shell includes $self, M4 code is also legal.",
+            "patterns": [
+                {
+                    "name": "meta.structure.extglob.shell",
+                    "begin": "([?*+@!])(\\()",
+                    "end": "(\\))",
+                    "beginCaptures": {
+                        "1": { "name": "keyword.operator.extglob.shell" },
+                        "2": { "name": "punctuation.definition.extglob.shell" }
+                    },
+                    "endCaptures": {
+                        "1": { "name": "punctuation.definition.extglob.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                }
+            ]
+        },
+
+        "shell-string": {
+            "comment": "This is a copy of #string from source.shell so that we can include our doctored #shell-interpolation before source.shell.interpolation",
+            "patterns": [
+                {
+                    "name": "string.quoted.double.shell",
+                    "begin": "\\$?\"",
+                    "end": "\"",
+                    "beginCaptures": {
+                        "0": { "name": "punctuation.definition.string.begin.shell" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.string.end.shell" }
+                    },
+                    "patterns": [
+                        {
+                            "match": "\\\\[\\$`\"\\\\\\n]",
+                            "name": "constant.character.escape.shell"
+                        },
+                        { "include": "source.shell.variable" },
+                        { "include": "#shell-interpolation" },
+                        { "include": "source.shell.interpolation" }
+                    ]
+                }
+            ]
+        },
+
+        "shell-loop": {
+            "comment": "This is a copy of the #loop pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+            "patterns": [
+                {
+                    "name": "meta.scope.for-loop.shell",
+                    "begin": "\\b(for)\\s+(?=\\({2})",
+                    "end": "\\b(done)\\b",
+                    "captures": {
+                        "1": { "name": "keyword.control.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.scope.for-in-loop.shell",
+                    "begin": "\\b(for)\\s+((?:[^\\s\\\\]|\\\\.)+)\\b",
+                    "end": "\\b(done)\\b",
+                    "beginCaptures": {
+                        "1": { "name": "keyword.control.shell" },
+                        "2": { "name": "variable.other.loop.shell" }
+                    },
+                    "endCaptures": {
+                        "1": { "name": "keyword.control.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.scope.while-loop.shell",
+                    "begin": "\\b(while|until)\\b",
+                    "end": "\\b(done)\\b",
+                    "captures": {
+                        "1": { "name": "keyword.control.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.scope.select-block.shell",
+                    "begin": "\\b(select)\\s+((?:[^\\s\\\\]|\\\\.)+)\\b",
+                    "end": "\\b(done)\\b",
+                    "beginCaptures": {
+                        "1": { "name": "keyword.control.shell" },
+                        "2": { "name": "variable.other.loop.shell" }
+                    },
+                    "endCaptures": {
+                        "1": { "name": "keyword.control.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.scope.case-block.shell",
+                    "begin": "\\b(case)\\b",
+                    "end": "\\b(esac)\\b",
+                    "captures": {
+                        "1": { "name": "keyword.control.shell" }
+                    },
+                    "patterns": [
+                        {
+                            "name": "meta.scope.case-body.shell",
+                            "begin": "\\b(?:in)\\b",
+                            "end": "(?=\\b(?:esac)\\b)",
+                            "beginCaptures": {
+                                "1": { "name": "keyword.control.shell" }
+                            },
+                            "patterns": [
+                                { "include": "source.shell.comment" },
+                                { "include": "#shell-case-clause" },
+                                { "include": "source.shell.case-clause" },
+                                { "include": "$self" }
+                            ]
+                        },
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.scope.if-block.shell",
+                    "begin": "\\b(if)\\b",
+                    "end": "\\b(fi)\\b",
+                    "captures": {
+                        "1": { "name": "keyword.control.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                }
+            ]
+        },
+
+        "shell-function-definition": {
+            "comment": "This is a copy of the #function-definition pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+            "patterns": [
+                {
+                    "name": "meta.function.shell",
+                    "begin": "\\b(function)\\s+([^\\s\\\\]+)(?:\\s*(\\(\\)))?",
+                    "end": ";|&|$",
+                    "beginCaptures": {
+                        "1": { "name": "storage.type.function.shell" },
+                        "2": { "name": "entity.name.function.shell" },
+                        "3": { "name": "punctuation.definition.arguments.shell" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                },
+                {
+                    "name": "meta.function.shell",
+                    "begin": "\\b([^\\s\\\\=]+)\\s*(\\(\\))",
+                    "end": ";|&|$",
+                    "beginCaptures": {
+                        "1": { "name": "entity.name.function.shell" },
+                        "2": { "name": "punctuation.definition.arguments.shell" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                }
+            ]
+        },
+
+        "shell-case-clause": {
+            "comment": "This is a copy of the #case-clause pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+            "patterns": [
+                {
+                    "name": "meta.scope.case-clause.shell",
+                    "begin": "(?=\\S)",
+                    "end": ";;",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.terminator.case-clause.shell" }
+                    },
+                    "patterns": [
+                        {
+                            "name": "meta.scope.case-pattern.shell",
+                            "begin": "(\\(|(?=\\S))",
+                            "end": "\\)",
+                            "captures": {
+                                "0": { "name": "punctuation.definition.case-pattern.shell" }
+                            },
+                            "patterns": [
+                                {
+                                    "match": "\\|",
+                                    "name": "punctuation.separator.pipe-sign.shell"
+                                },
+                                { "include": "#shell-string" },
+                                { "include": "source.shell.string" },
+                                { "include": "source.shell.variable" },
+                                { "include": "#shell-interpolation" },
+                                { "include": "source.shell.interpolation" },
+                                { "include": "#shell-pathname" },
+                                { "include": "source.shell.pathname" }
+                            ]
+                        },
+                        {
+                            "name": "meta.scope.case-clause-body.shell",
+                            "begin": "(?<=\\))",
+                            "end": "(?=;;)",
+                            "patterns": [
+                                { "include": "$self" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "shell-redirection": {
+            "comment": "This is a copy of one of the patterns from the #redirection pattern from source.shell so that anywhere shell includes $self, M4 code is also legal.",
+            "patterns": [
+                {
+                    "name": "string.interpolated.process-substitution.shell",
+                    "begin": "[><]\\(",
+                    "end": "\\)",
+                    "beginCaptures": {
+                        "0": { "name": "punctuation.definition.string.begin.shell" }
+                    },
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.string.end.shell" }
+                    },
+                    "patterns": [
+                        { "include": "$self" }
+                    ]
+                }
+            ]
         }
     },
     "patterns": [
         { "include": "#m4-quoted-shell" },
         { "include": "#m4-pure" },
+        { "include": "#shell-interpolation" },
+        { "include": "#shell-compound-command" },
+        { "include": "#shell-pathname" },
+        { "include": "#shell-string" },
+        { "include": "#shell-loop" },
+        { "include": "#shell-function-definition" },
+        { "include": "#shell-redirection" },
         { "include": "source.shell" },
         {
             "name": "invalid.illegal.syntax-error",
