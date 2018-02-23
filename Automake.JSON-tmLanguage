@@ -223,7 +223,8 @@
             },
             "end": "(?<!\\\\)\\n$",
             "patterns": [
-                { "include": "#assignment-rhs" }
+                { "include": "#assignment-rhs"},
+                { "include": "#comment"}
             ]
         },
         { "include": "source.makefile2" },

@@ -50,6 +50,10 @@
 					<key>include</key>
 					<string>#assignment-rhs</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
