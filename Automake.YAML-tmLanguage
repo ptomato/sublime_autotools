@@ -19,12 +19,7 @@ repository:
     contentName: variable.other.makefile
     begin: \$\(
     end: \)
-    beginCaptures:
-      '0':
-        name: keyword.operator.makefile
-    endCaptures:
-      '0':
-        name: keyword.operator.makefile
+    name: string.interpolated.makefile
     patterns:
       - include: $self
       - name: string.other.substitution.makefile
@@ -32,11 +27,18 @@ repository:
         captures:
           '1': {name: keyword.operator.substitution.makefile}
           '2': {name: keyword.operator.substitution.makefile}
-      - name: support.function.makefile
-        match: "(?<=\\$\\()(addprefix|addsuffix|and|basename|call|dir|error|\
+      - name: meta.scope.function.makefile
+        begin: "(?<=\\$\\()(addprefix|addsuffix|and|basename|call|dir|error|\
           eval|file|filter(-out)?|findstring|firstword|flavor|foreach|guile|\
           if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|\
           value|warning|wildcard|words?)\\b"
+        end: (?=\))
+        beginCaptures:
+          '1': {name: support.function.makefile}
+        contentName: string.interpolated.makefile
+        patterns:
+          - include: $self
+
   automatic-variable:
     name: variable.language.makefile
     match: \$([@%<?^+*]|\([@*%<^?][DF]\))
@@ -46,6 +48,17 @@ repository:
     begin: \$\{
     end: \}
     patterns: []
+
+  simple-variable:
+    name: variable.other.shell.makefile
+    match: \$\$?\w+
+    patterns: []
+
+  variables:
+    patterns:
+      - include: '#shell-variable-reference'
+      - include: '#variable-reference'
+      - include: '#simple-variable'
 
   double-quoted-string:
     name: string.quoted.double.makefile
@@ -65,7 +78,7 @@ repository:
     end: '`'
     patterns:
       - include: source.shell
-      - include: '#variable-reference'
+      - include: '#variables'
 
   # Automake-specific syntax
   # ------------------------
@@ -182,8 +195,7 @@ repository:
     # What is allowed on the right-hand-side of an assignment
     patterns:
       - include: '#automatic-variable'
-      - include: '#variable-reference'
-      - include: '#shell-variable-reference'
+      - include: '#variables'
       - include: '#escaped-char'
       - include: '#double-quoted-string'
       - include: '#single-quoted-string'

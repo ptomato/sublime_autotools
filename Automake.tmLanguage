@@ -77,11 +77,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#variable-reference</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#shell-variable-reference</string>
+					<string>#variables</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -130,7 +126,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#variable-reference</string>
+					<string>#variables</string>
 				</dict>
 			</array>
 		</dict>
@@ -377,6 +373,15 @@
 			<key>patterns</key>
 			<array/>
 		</dict>
+		<key>simple-variable</key>
+		<dict>
+			<key>match</key>
+			<string>\$\$?\w+</string>
+			<key>name</key>
+			<string>variable.other.shell.makefile</string>
+			<key>patterns</key>
+			<array/>
+		</dict>
 		<key>single-quoted-string</key>
 		<dict>
 			<key>begin</key>
@@ -432,26 +437,12 @@
 		<dict>
 			<key>begin</key>
 			<string>\$\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.makefile</string>
-				</dict>
-			</dict>
 			<key>contentName</key>
 			<string>variable.other.makefile</string>
 			<key>end</key>
 			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.makefile</string>
-				</dict>
-			</dict>
+			<key>name</key>
+			<string>string.interpolated.makefile</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -478,10 +469,47 @@
 					<string>string.other.substitution.makefile</string>
 				</dict>
 				<dict>
-					<key>match</key>
+					<key>begin</key>
 					<string>(?&lt;=\$\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter(-out)?|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|words?)\b</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.makefile</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>string.interpolated.makefile</string>
+					<key>end</key>
+					<string>(?=\))</string>
 					<key>name</key>
-					<string>support.function.makefile</string>
+					<string>meta.scope.function.makefile</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>variables</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#shell-variable-reference</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable-reference</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#simple-variable</string>
 				</dict>
 			</array>
 		</dict>
