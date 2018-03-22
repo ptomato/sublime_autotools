@@ -16,6 +16,7 @@ repository:
   escaped-char:
     name: constant.character.escape.makefile
     match: \\.
+    patterns: []
 
   variable-reference:
     begin: \$\(
@@ -41,11 +42,13 @@ repository:
   automatic-variable:
     name: variable.language.makefile
     match: \$([@%<?^+*]|\([@*%<^?][DF]\))
+    patterns: []
 
   shell-variable-reference:
     begin: \$\{
     end: \}
     contentName: variable.other.shell.makefile
+    patterns: []
 
   double-quoted-string:
     name: string.quoted.double.makefile

@@ -46,10 +46,12 @@ repository:
     name: comment.line.dnl.m4
     begin: dnl
     end: $
+    patterns: []
   quadrigraph:
     # @<:@ and @:>@ to replace left and right brackets
     name: constant.character.escape.quadrigraph.m4
     match: '@(<:|:>)@'
+    patterns: []
 
   # M4 macros state machine
   # -----------------------
@@ -62,6 +64,7 @@ repository:
     name: invalid.illegal.supernumerary-argument.m4
     begin: ','
     end: (?=\))
+    patterns: []
 
   ARG-M:
     # This is an argument containing only pure M4.
@@ -678,10 +681,12 @@ repository:
   m4-macros-noargs:
     name: keyword.other.macro.m4
     match: \bm4_(divnum|init|location|sysval)
+    patterns: []
   m4-macros-optargs:
     name: keyword.other.macro.m4
     match: "\\bm4_(change(com|quote)|debug(file|mode)|divert_pop|newline|\
       trace(on|off))"
+    patterns: []
 
   ac-macros-noargs:
     name: keyword.other.macro.autoconf
@@ -706,19 +711,23 @@ repository:
       LONG_DOUBLE(_WIDER)?|LONG_LONG_INT|MBSTATE_T|MODE_T|OFF_T|PID_T|SIGNAL|\
       SIZE_T|SSIZE_T|UID_T|UINT(16_T|32_T|64_T|8_T)|UINTMAX_T|UINTPTR_T|\
       UNSIGNED_LONG_LONG_INT)|USE_SYSTEM_EXTENSIONS)"
+    patterns: []
   ac-macros-noargs2:
     name: keyword.other.macro.autoconf
     match: "\\bA(H_HEADER|S_(BOURNE_COMPATIBLE|INIT|LINENO_PREPARE|ME_PREPARE|\
       MESSAGE_FD|MESSAGE_LOG_FD|ORIGINAL_STDIN_FD|SHELL_SANITIZE)|\
       T_(CLEANUP|COLOR_TESTS))"
+    patterns: []
   ac-macros-optargs:
     name: keyword.other.macro.autoconf
     match: "\\bAC_(C_BIGENDIAN|ERLANG_(PATH|NEED)_ERLC?|F(77|C)_DUMMY_MAIN|\
       FC_((FIXED|FREE)FORM|LINE_LENGTH)|INCLUDES_DEFAULT|LANG_POP|\
       PROG_(CC|CXX|OBJC(XX)?|F(77|C)))"
+    patterns: []
   ac-macros-optargs2:
     name: keyword.other.macro.autoconf
     match: \bA(S_EXIT|T_INIT)
+    patterns: []
   ac-macros-obsolete:
     # Deprecated macros are highlighted as errors. We don't bother highlighting
     # their arguments properly, because they're deprecated anyway!
@@ -743,34 +752,41 @@ repository:
       TIME_WITH_SYS_TIME|TIMEZONE|TRY_(COMPILE|CPP|LINK_FUNC|LINK|RUN)|UID_T|\
       UNISTD_H|USG|UTIME_NULL|VALIDATE_CACHED_SYSTEM_TUPLE|VERBOSE|VFORK|\
       VPRINTF|WAIT3|WARN|WITH|WORDS_BIGENDIAN|XENIX_DIR|YYTEXT_POINTER)"
+    patterns: []
 
   am-macros-noargs:
     name: keyword.other.macro.automake
     match: "\\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|\
       GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|GCJ|LEX)|\
       SILENT_RULES|WITH_DMALLOC)"
+    patterns: []
   am-macros-optargs:
     name: keyword.other.macro.automake
     match: \bAM_(INIT_AUTOMAKE|MAINTAINER_MODE|PATH_PYTHON|PROG_(UPC|VALAC))
+    patterns: []
   am-macros-private:
     name: invalid.illegal.private.automake
     match: "\\bAM_(DEP_TRACK|MAKE_INCLUDE|OUTPUT_DEPENDENCY_COMMANDS|\
       PROG_INSTALL_STRIP|SANITY_CHECK|SET_DEPDIR)"
+    patterns: []
   am-macros-obsolete:
     name: invalid.deprecated.macro.automake
     match: "\\bAM_(C_PROTOTYPES|CONFIG_HEADER|\
       HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL|PATH_CHECK|\
       PROG_(CC_(STDC|C_O)|LIBTOOL|MKDIR_P)|SYS_POSIX_TERMIOS|WITH_REGEX|\
       (DIS|EN)ABLE_(STATIC|SHARED))"
+    patterns: []
 
   misc-macros-noargs:
     name: keyword.other.macro.autotools
     match: "\\b(__(file|o?line)__|LT_(CMD_MAX_LEN|FUNC_DLSYM_USCORE|\
       LIB_(M|DLLOAD)|OUTPUT|PATH_(LD|NM)|SYS_(DLOPEN_(SELF|DEPLIBS)|\
       MODULE_(EXT|PATH)|DLSEARCH_PATH|SYMBOL_USCORE)))"
+    patterns: []
   misc-macros-optargs:
     name: keyword.other.macro.autotools
     match: \b(LT_INIT|PKG_PROG_PKG_CONFIG)
+    patterns: []
 
   m4-pure:
     # This context highlights pure M4 code.

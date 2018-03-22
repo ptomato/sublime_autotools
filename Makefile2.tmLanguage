@@ -158,6 +158,8 @@
 			<string>\$([@%&lt;?^+*]|\([@*%&lt;^?][DF]\))</string>
 			<key>name</key>
 			<string>variable.language.makefile</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>backtick-subshell</key>
 		<dict>
@@ -201,6 +203,8 @@
 			<string>\\.</string>
 			<key>name</key>
 			<string>constant.character.escape.makefile</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>shell-variable-reference</key>
 		<dict>
@@ -210,6 +214,8 @@
 			<string>variable.other.shell.makefile</string>
 			<key>end</key>
 			<string>\}</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>single-quoted-string</key>
 		<dict>

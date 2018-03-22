@@ -471,6 +471,8 @@
 			<string>(?=\))</string>
 			<key>name</key>
 			<string>invalid.illegal.supernumerary-argument.m4</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>TO-ARGS-M</key>
 		<dict>
@@ -744,6 +746,8 @@
 			<string>\bAC_(ARG_PROGRAM|AUTOCONF_VERSION|C_BACKSLASH_A|CACHE_(LOAD|SAVE)|CANONICAL_(BUILD|HOST|TARGET)|CHECK_HEADER_STDBOOL|C_(CHAR_UNSIGNED|CONST|FLEXIBLE_ARRAY_MEMBER|INLINE|PROTOTYPES|RESTRICT|STRINGIZE|TYPEOF|VARARRAYS|VOLATILE)|DISABLE_OPTION_CHECKING|ERLANG_SUBST_(((INSTALL_)?LIB|ROOT)_DIR|ERTS_VER)|F77_(MAIN|WRAPPERS)|FC_(MAIN|MODULE_EXTENSION|WRAPPERS)|FUNC_(ALLOCA|CHOWN|CLOSEDIR_VOID|FNMATCH(_GNU)?|FORK|FSEEKO|GETGROUPS|GETLOADAVG|GETMNTENT|GETPGRP|LSTAT|MALLOC|MBRTOWC|MEMCMP|MMAP|OBSTACK|REALLOC|SELECT_ARGTYPES|SETPGRP|STAT|STRCOLL|STRERROR_R|STRFTIME|STRNLEN|STRTOLD|UTIME_NULL|VPRINTF)|HEADER_(ASSERT|DIRENT|MAJOR|RESOLV|STAT|STDBOOL|STDC|SYS_WAIT|TIME|TIOCGWINSZ)|LANG_(DEFINES_PROVIDED|WERROR)|OUTPUT|PACKAGE_(BUGREPORT|NAME|STRING|TARNAME|URL|VERSION)|PATH_X(TRA)?|PRESERVE_HELP_ORDER|PROG_(AWK|CC(_C(89|99|_O))|CC_STDC|CPP(_WERROR)?|CXX(CPP|_C_O)?|EGREP|F77_C_O|FC_C_O|FGREP|GCC_TRADITIONAL|GREP|INSTALL|LEX|LN_S|MAKE_SET|MKDIR_P|OBJ(CXX)?CPP|RANLIB|SED|YACC)|REPLACE_FNMATCH|REQUIRE_CPP|STRUCT_(DIRENT_D_(INO|TYPE)|ST_BLOCKS|TIMEZONE|TM)|SYS_(INTERPRETER|LARGEFILE|LONG_FILE_NAMES|POSIX_TERMIOS)|TYPE_(GETGROUPS|INT(16_T|32_T|64_T|8_T)|INTMAX_T|INTPTR_T|LONG_DOUBLE(_WIDER)?|LONG_LONG_INT|MBSTATE_T|MODE_T|OFF_T|PID_T|SIGNAL|SIZE_T|SSIZE_T|UID_T|UINT(16_T|32_T|64_T|8_T)|UINTMAX_T|UINTPTR_T|UNSIGNED_LONG_LONG_INT)|USE_SYSTEM_EXTENSIONS)</string>
 			<key>name</key>
 			<string>keyword.other.macro.autoconf</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>ac-macros-noargs2</key>
 		<dict>
@@ -751,6 +755,8 @@
 			<string>\bA(H_HEADER|S_(BOURNE_COMPATIBLE|INIT|LINENO_PREPARE|ME_PREPARE|MESSAGE_FD|MESSAGE_LOG_FD|ORIGINAL_STDIN_FD|SHELL_SANITIZE)|T_(CLEANUP|COLOR_TESTS))</string>
 			<key>name</key>
 			<string>keyword.other.macro.autoconf</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>ac-macros-obsolete</key>
 		<dict>
@@ -758,6 +764,8 @@
 			<string>\bAC_(AIX|ALLOCA|ARG_ARRAY|CANONICAL_SYSTEM|C_(CROSS|LONG_DOUBLE)|CHAR_UNSIGNED|CHECKING|COMPILE_CHECK|CONFIG_HEADER|CONST|CROSS_CHECK|CYGWIN|DECL_(SYS_SIGLIST|YYTEXT)|DIR_HEADER|DISABLE_(FAST_INSTALL|SHARED|STATIC)|DYNIX_SEQ|ENABLE(_(SHARED|STATIC))?|EMXOS2|ERROR|EXEEXT|FIND_X(TRA)?|FOREACH|FUNC_(CHECK|ERROR_AT_LINE|LSTAT_FOLLOWS_SLASHED_SYMLINK|MKTIME|SETVBUF_REVERSED|STRTOD|WAIT3)|GCC_TRADITIONAL|GETGROUPS_T|GETLOADAVG|GNU_SOURCE|HAVE_(FUNCS|HEADERS|LIBRARY|POUNDBANG)|HEADER_(CHECK|EGREP)|HELP_STRING|INLINE|INT_16_BITS|IRIX_SUN|LANG_(CPLUSPLUS|C|FORTRAN77|RESTORE|SAVE)|LIBTOOL_(DLOPEN|WIN32_DLL)|LINK_FILES|LN_S|LONG_(64_BITS|DOUBLE|FILE_NAMES)|MAJOR_HEADER|MEMORY_H|MINGW32|MINIX|MINUS_C_MINUS_O|MMAP|MODE_T|OBJEXT|OBSOLETE|OFF_T|OUTPUT_COMMANDS|PID_T|PREFIX|PROG_(INTL|LIB)TOOL|PROGRAM_(CHECK|EGREP|PATH)|PROGRAMS_(CHECK|PATH)|REMOTE_TAPE|RESTARTABLE_SYSCALLS|RETSIGTYPE|RSH|SCO_INTL|SET_MAKE|SETVBUF_REVERSED|SIZEOF_TYPE|SIZE_T|STAT_MACROS_BROKEN|ST_(BLKSIZE|BLOCKS|RDEV)|STDC_HEADERS|STRCOLL|SYS_(RESTARTABLE_SYSCALLS|SIGLIST_DECLARED)|TEST_(CPP|PROGRAM)|TIME_WITH_SYS_TIME|TIMEZONE|TRY_(COMPILE|CPP|LINK_FUNC|LINK|RUN)|UID_T|UNISTD_H|USG|UTIME_NULL|VALIDATE_CACHED_SYSTEM_TUPLE|VERBOSE|VFORK|VPRINTF|WAIT3|WARN|WITH|WORDS_BIGENDIAN|XENIX_DIR|YYTEXT_POINTER)</string>
 			<key>name</key>
 			<string>invalid.deprecated.macro.autoconf</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>ac-macros-optargs</key>
 		<dict>
@@ -765,6 +773,8 @@
 			<string>\bAC_(C_BIGENDIAN|ERLANG_(PATH|NEED)_ERLC?|F(77|C)_DUMMY_MAIN|FC_((FIXED|FREE)FORM|LINE_LENGTH)|INCLUDES_DEFAULT|LANG_POP|PROG_(CC|CXX|OBJC(XX)?|F(77|C)))</string>
 			<key>name</key>
 			<string>keyword.other.macro.autoconf</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>ac-macros-optargs2</key>
 		<dict>
@@ -772,6 +782,8 @@
 			<string>\bA(S_EXIT|T_INIT)</string>
 			<key>name</key>
 			<string>keyword.other.macro.autoconf</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>am-macros-noargs</key>
 		<dict>
@@ -779,6 +791,8 @@
 			<string>\bAM_(ENABLE_MULTILIB|GCONF_SOURCE_2|GLIB_GNU_GETTEXT|GNU_GETTEXT_INTL_SUBDIR|PATH_LISPDIR|PO_SUBDIRS|PROG_(AR|AS|GCJ|LEX)|SILENT_RULES|WITH_DMALLOC)</string>
 			<key>name</key>
 			<string>keyword.other.macro.automake</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>am-macros-obsolete</key>
 		<dict>
@@ -786,6 +800,8 @@
 			<string>\bAM_(C_PROTOTYPES|CONFIG_HEADER|HEADER_TIOCGWINSZ_NEEDS_SYS_IOCTL|PATH_CHECK|PROG_(CC_(STDC|C_O)|LIBTOOL|MKDIR_P)|SYS_POSIX_TERMIOS|WITH_REGEX|(DIS|EN)ABLE_(STATIC|SHARED))</string>
 			<key>name</key>
 			<string>invalid.deprecated.macro.automake</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>am-macros-optargs</key>
 		<dict>
@@ -793,6 +809,8 @@
 			<string>\bAM_(INIT_AUTOMAKE|MAINTAINER_MODE|PATH_PYTHON|PROG_(UPC|VALAC))</string>
 			<key>name</key>
 			<string>keyword.other.macro.automake</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>am-macros-private</key>
 		<dict>
@@ -800,6 +818,8 @@
 			<string>\bAM_(DEP_TRACK|MAKE_INCLUDE|OUTPUT_DEPENDENCY_COMMANDS|PROG_INSTALL_STRIP|SANITY_CHECK|SET_DEPDIR)</string>
 			<key>name</key>
 			<string>invalid.illegal.private.automake</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>func-as-case</key>
 		<dict>
@@ -1649,6 +1669,8 @@
 			<string>$</string>
 			<key>name</key>
 			<string>comment.line.dnl.m4</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>m4-function-call</key>
 		<dict>
@@ -1683,6 +1705,8 @@
 			<string>\bm4_(divnum|init|location|sysval)</string>
 			<key>name</key>
 			<string>keyword.other.macro.m4</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>m4-macros-optargs</key>
 		<dict>
@@ -1690,6 +1714,8 @@
 			<string>\bm4_(change(com|quote)|debug(file|mode)|divert_pop|newline|trace(on|off))</string>
 			<key>name</key>
 			<string>keyword.other.macro.m4</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>m4-pure</key>
 		<dict>
@@ -1901,6 +1927,8 @@
 			<string>\b(__(file|o?line)__|LT_(CMD_MAX_LEN|FUNC_DLSYM_USCORE|LIB_(M|DLLOAD)|OUTPUT|PATH_(LD|NM)|SYS_(DLOPEN_(SELF|DEPLIBS)|MODULE_(EXT|PATH)|DLSEARCH_PATH|SYMBOL_USCORE)))</string>
 			<key>name</key>
 			<string>keyword.other.macro.autotools</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>misc-macros-optargs</key>
 		<dict>
@@ -1908,6 +1936,8 @@
 			<string>\b(LT_INIT|PKG_PROG_PKG_CONFIG)</string>
 			<key>name</key>
 			<string>keyword.other.macro.autotools</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>quadrigraph</key>
 		<dict>
@@ -1915,6 +1945,8 @@
 			<string>@(&lt;:|:&gt;)@</string>
 			<key>name</key>
 			<string>constant.character.escape.quadrigraph.m4</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>shell-case-clause</key>
 		<dict>

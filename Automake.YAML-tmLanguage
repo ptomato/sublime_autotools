@@ -14,6 +14,7 @@ repository:
   escaped-char:
     name: constant.character.escape.makefile
     match: \\.
+    patterns: []
   variable-reference:
     contentName: variable.other.makefile
     begin: \$\(
@@ -39,10 +40,13 @@ repository:
   automatic-variable:
     name: variable.language.makefile
     match: \$([@%<?^+*]|\([@*%<^?][DF]\))
+    patterns: []
   shell-variable-reference:
     contentName: variable.other.shell.makefile
     begin: \$\{
     end: \}
+    patterns: []
+
   double-quoted-string:
     name: string.quoted.double.makefile
     begin: '"'
@@ -70,6 +74,7 @@ repository:
     # Substitutions from AC_SUBST
     name: string.interpolated.substitution.automake
     match: '@\w+@'
+    patterns: []
 
   no-subst-comment:
     # Lines starting with ## are not copied into Makefile.in, and no
@@ -77,6 +82,7 @@ repository:
     name: comment.line.double-number-sign.automake
     begin: ^##
     end: $
+    patterns: []
   comment:
     # Copy of Makefile's comment, but substitutions are allowed
     name: comment.line.number-sign.automake
