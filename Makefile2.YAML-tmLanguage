@@ -86,8 +86,8 @@ repository:
       - include: source.shell
       - include: '#variables'
 
-patterns:
-  - name: comment.line.number-sign.makefile
+  comment:
+    name: comment.line.number-sign.makefile
     begin: '#'
     end: $\n?
     beginCaptures:
@@ -95,7 +95,9 @@ patterns:
     patterns:
       - name: punctuation.separator.continuation.makefile
         match: (?<!\\)\\$\n
-  - name: meta.assignment.makefile
+
+  assignment:
+    name: meta.assignment.makefile
     begin: ^([a-zA-Z_][a-zA-Z0-9_]*)\s*([\+\?:]?=)
     beginCaptures:
       '1': {name: variable.other.makefile}
@@ -108,7 +110,9 @@ patterns:
       - include: '#double-quoted-string'
       - include: '#single-quoted-string'
       - include: '#backtick-subshell'
-  - name: meta.rule.makefile
+
+  rule:
+    name: meta.rule.makefile
     begin: '^([^\t\:][^\:]*)\:'
     end: "^(?!\t)"
     beginCaptures:
@@ -122,6 +126,11 @@ patterns:
       - include: '#automatic-variable'
       - include: '#variable-reference'
       - include: source.shell
+
+patterns:
+  - include: '#comment'
+  - include: '#assignment'
+  - include: '#rule'
   - name: keyword.control.makefile
     match: ^(\-??include|if|ifeq|ifneq|ifdef|ifndef|else|endif|vpath|export|unexport|define|endef|override)\b
   - include: '#variables'
