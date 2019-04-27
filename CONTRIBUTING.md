@@ -23,10 +23,10 @@ ln -s ~/path/to/sublime_autotools ~/Library/Application\ Support/Sublime\ Text\ 
 
 To create a pull request, make sure you have updated all the necessary
 files.
-If you change one of the `.JSON-tmLanguage` files, you should regenerate
+If you change one of the `.YAML-tmLanguage` files, you should regenerate
 and commit the `.tmLanguage` PList file as well.
 The best way to do this is to install the "PackageDev" package in
 Sublime Text.
-When you have changed the `.JSON-tmLanguage` file, use PackageDev to
+When you have changed the `.YAML-tmLanguage` file, use PackageDev to
 regenerate the other one.
 (Shift+Ctrl+P, "PackageDev: Convert (YAML, JSON, PList) to...")

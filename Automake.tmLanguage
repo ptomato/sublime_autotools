@@ -69,8 +69,6 @@
 	<dict>
 		<key>assignment-rhs</key>
 		<dict>
-			<key>comment</key>
-			<string>What is allowed on the right-hand-side of an assignment</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -109,8 +107,6 @@
 		</dict>
 		<key>automatic-variable</key>
 		<dict>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>match</key>
 			<string>\$([@%&lt;?^+*]|\([@*%&lt;^?][DF]\))</string>
 			<key>name</key>
@@ -120,8 +116,6 @@
 		<dict>
 			<key>begin</key>
 			<string>`</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>end</key>
 			<string>`</string>
 			<key>name</key>
@@ -142,8 +136,6 @@
 		<dict>
 			<key>begin</key>
 			<string>#</string>
-			<key>comment</key>
-			<string>Copy of makefile's comment, but substitutions are allowed</string>
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
@@ -178,8 +170,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a directory variable (e.g. foobardir)</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -196,8 +186,6 @@
 		<dict>
 			<key>begin</key>
 			<string>"</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>end</key>
 			<string>"</string>
 			<key>name</key>
@@ -212,8 +200,6 @@
 		</dict>
 		<key>escaped-char</key>
 		<dict>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>match</key>
 			<string>\\.</string>
 			<key>name</key>
@@ -236,8 +222,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a FLAGS variable</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -267,8 +251,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a non-primary, secondary, flags, or dir variable</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -285,8 +267,6 @@
 		<dict>
 			<key>begin</key>
 			<string>^##</string>
-			<key>comment</key>
-			<string>Lines starting with ## are not copied into Makefile.in, and no substitutions are performed</string>
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
@@ -329,8 +309,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a primary: any number of prefixes_, then either a nondir target (e.g. noinst), a dir target (e.g. bin), or a user-defined dir, then finally a _PRIMARY</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -370,8 +348,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a secondary: any number of prefix_ or EXTRA_, then the canonicalized_program_name, and finally a _SECONDARY</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -388,8 +364,6 @@
 		<dict>
 			<key>begin</key>
 			<string>\$\{</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>contentName</key>
 			<string>variable.other.shell.makefile</string>
 			<key>end</key>
@@ -399,8 +373,6 @@
 		<dict>
 			<key>begin</key>
 			<string>'</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>end</key>
 			<string>'</string>
 			<key>name</key>
@@ -415,8 +387,6 @@
 		</dict>
 		<key>special-assignment</key>
 		<dict>
-			<key>comment</key>
-			<string>The contexts listed here represent an assignment to an Automake variable</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -443,8 +413,6 @@
 		</dict>
 		<key>substitution</key>
 		<dict>
-			<key>comment</key>
-			<string>Substitutions from AC_SUBST</string>
 			<key>match</key>
 			<string>@\w+@</string>
 			<key>name</key>
@@ -462,8 +430,6 @@
 					<string>keyword.operator.makefile</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>contentName</key>
 			<string>variable.other.makefile</string>
 			<key>end</key>

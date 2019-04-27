@@ -1,0 +1,108 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+uuid: FF1825E8-6B1C-11D9-B883-000D93589AF6
+name: Makefile
+scopeName: source.makefile2
+fileTypes:
+  - make
+  - GNUmakefile
+  - makefile
+  - Makefile
+  - OCamlMakefile
+  - mak
+  - mk
+
+repository:
+  escaped-char:
+    name: constant.character.escape.makefile
+    match: \\.
+
+  variable-reference:
+    begin: \$\(
+    end: \)
+    beginCaptures:
+      '0': {name: keyword.operator.makefile}
+    endCaptures:
+      '0': {name: keyword.operator.makefile}
+    contentName: variable.other.makefile
+    patterns:
+      - include: $self
+      - name: string.other.substitution.makefile
+        match: (:)[a-zA-Z0-9_%.]+(=)[a-zA-Z0-9_%.]+
+        captures:
+          '1': {name: keyword.operator.substitution.makefile}
+          '2': {name: keyword.operator.substitution.makefile}
+      - name: support.function.makefile
+        match: (?<=\$\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter|filter-out|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|word|words)\b
+
+  automatic-variable:
+    name: variable.language.makefile
+    match: \$([@%<?^+*]|\([@*%<^?][DF]\))
+
+  shell-variable-reference:
+    begin: \$\{
+    end: \}
+    contentName: variable.other.shell.makefile
+
+  double-quoted-string:
+    name: string.quoted.double.makefile
+    begin: '"'
+    end: '"'
+    patterns:
+      - include: '#escaped-char'
+
+  single-quoted-string:
+    name: string.quoted.single.makefile
+    begin: ''''
+    end: ''''
+    patterns:
+      - include: '#escaped-char'
+
+  backtick-subshell:
+    name: string.interpolated.backtick.makefile
+    begin: '`'
+    end: '`'
+    patterns:
+      - include: source.shell
+      - include: '#variable-reference'
+
+patterns:
+  - name: comment.line.number-sign.makefile
+    begin: '#'
+    end: $\n?
+    beginCaptures:
+      '0': {name: punctuation.definition.comment.makefile}
+    patterns:
+      - name: punctuation.separator.continuation.makefile
+        match: (?<!\\)\\$\n
+  - name: meta.assignment.makefile
+    begin: ^([a-zA-Z_][a-zA-Z0-9_]*)\s*([\+\?:]?=)
+    beginCaptures:
+      '1': {name: variable.other.makefile}
+      '2': {name: keyword.operator.assignment.makefile}
+    end: (?<!\\)\n$
+    patterns:
+      - include: '#automatic-variable'
+      - include: '#variable-reference'
+      - include: '#shell-variable-reference'
+      - include: '#escaped-char'
+      - include: '#double-quoted-string'
+      - include: '#single-quoted-string'
+      - include: '#backtick-subshell'
+  - name: meta.rule.makefile
+    begin: '^([^\t\:][^\:]*)\:'
+    end: "^(?!\t)"
+    beginCaptures:
+      '1': {name: entity.name.function.rule.makefile}
+    patterns:
+      - name: meta.prerequisites.makefile
+        begin: (?<=:)(?=.)
+        end: ;|\n
+        patterns:
+          - include: '#variable-reference'
+      - include: '#automatic-variable'
+      - include: '#variable-reference'
+      - include: source.shell
+  - name: keyword.control.makefile
+    match: ^(\-??include|if|ifeq|ifneq|ifdef|ifndef|else|endif|vpath|export|unexport|define|endef|override)\b
+  - include: '#variable-reference'
