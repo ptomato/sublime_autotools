@@ -4,11 +4,12 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
+		<string>make</string>
 		<string>GNUmakefile</string>
 		<string>makefile</string>
 		<string>Makefile</string>
 		<string>OCamlMakefile</string>
-		<string>make</string>
+		<string>mak</string>
 		<string>mk</string>
 	</array>
 	<key>name</key>

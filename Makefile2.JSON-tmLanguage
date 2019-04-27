@@ -1,11 +1,12 @@
 {
     "scopeName": "source.makefile2",
     "fileTypes": [
+        "make",
         "GNUmakefile",
         "makefile",
         "Makefile",
         "OCamlMakefile",
-        "make",
+        "mak",
         "mk"
     ],
     "name": "Makefile",
