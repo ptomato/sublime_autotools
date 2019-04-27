@@ -32,9 +32,10 @@ repository:
           '1': {name: keyword.operator.substitution.makefile}
           '2': {name: keyword.operator.substitution.makefile}
       - name: support.function.makefile
-        match: "(?<=\\$\\()(addprefix|addsuffix|basename|call|dir|error|\
-          filter(-out)?|findstring|firstword|foreach|join|notdir|origin|\
-          patsubst|shell|sort|strip|subst|suffix|warning|wildcard|words?)\\b"
+        match: "(?<=\\$\\()(addprefix|addsuffix|and|basename|call|dir|error|\
+          eval|file|filter(-out)?|findstring|firstword|flavor|foreach|guile|\
+          if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|\
+          value|warning|wildcard|words?)\\b"
   automatic-variable:
     name: variable.language.makefile
     match: \$([@%<?^+*]|\([@*%<^?][DF]\))

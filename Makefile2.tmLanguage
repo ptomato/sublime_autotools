@@ -278,7 +278,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;=\$\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter|filter-out|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|word|words)\b</string>
+					<string>(?&lt;=\$\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter(-out)?|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|words?)\b</string>
 					<key>name</key>
 					<string>support.function.makefile</string>
 				</dict>
