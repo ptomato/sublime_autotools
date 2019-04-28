@@ -104,6 +104,11 @@ repository:
     patterns:
       - include: '#substitution'
 
+  escaped-newline:
+    name: constant.character.escape.automake
+    match: \\$
+    patterns: []
+
   flags-assignment:
     # Assignment to a FLAGS variable
     name: meta.assignment.flags.automake
@@ -201,6 +206,7 @@ repository:
       - include: '#single-quoted-string'
       - include: '#backtick-subshell'
       - include: '#substitution'
+      - include: '#escaped-newline'
 
 patterns:
   - include: '#no-subst-comment'

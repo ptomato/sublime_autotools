@@ -99,6 +99,10 @@
 					<key>include</key>
 					<string>#substitution</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped-newline</string>
+				</dict>
 			</array>
 		</dict>
 		<key>automatic-variable</key>
@@ -202,6 +206,15 @@
 			<string>\\.</string>
 			<key>name</key>
 			<string>constant.character.escape.makefile</string>
+			<key>patterns</key>
+			<array/>
+		</dict>
+		<key>escaped-newline</key>
+		<dict>
+			<key>match</key>
+			<string>\\$</string>
+			<key>name</key>
+			<string>constant.character.escape.automake</string>
 			<key>patterns</key>
 			<array/>
 		</dict>
