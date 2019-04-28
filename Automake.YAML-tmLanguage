@@ -207,6 +207,7 @@ repository:
       - include: '#backtick-subshell'
       - include: '#substitution'
       - include: '#escaped-newline'
+      - include: '#comment'
 
 patterns:
   - include: '#no-subst-comment'

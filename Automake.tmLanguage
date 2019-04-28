@@ -103,6 +103,10 @@
 					<key>include</key>
 					<string>#escaped-newline</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
 			</array>
 		</dict>
 		<key>automatic-variable</key>
