@@ -79,98 +79,81 @@ repository:
   # The TO-ARGS- states match a comma, and then enter the corresponding ARGS-
   # state
   TO-ARGS-M:
-    begin: ','
-    end: (?=\))
+    <<: &TO-ARGS
+      begin: ','
+      end: (?=\))
     patterns:
       - include: '#ARGS-M'
   TO-ARGS-S:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-S'
   TO-ARGS-MM:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MM'
   TO-ARGS-MS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MS'
   TO-ARGS-SM:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-SM'
   TO-ARGS-SS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-SS'
   TO-ARGS-MMM:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MMM'
   TO-ARGS-MMS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MMS'
   TO-ARGS-MSS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MSS'
   TO-ARGS-SSM:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-SSM'
   TO-ARGS-SSS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-SSS'
   TO-ARGS-MMMM:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MMMM'
   TO-ARGS-MMSS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MMSS'
   TO-ARGS-MSSM:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MSSM'
   TO-ARGS-MSSS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MSSS'
   TO-ARGS-MMMMM:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MMMMM'
   TO-ARGS-MMMSS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MMMSS'
   TO-ARGS-MVARARGS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-MVARARGS'
   TO-ARGS-SVARARGS:
-    begin: ','
-    end: (?=\))
+    <<: *TO-ARGS
     patterns:
       - include: '#ARGS-SVARARGS'
 
@@ -321,30 +304,20 @@ repository:
       IT_PO_SUBDIR|\
       GOBJECT_INTROSPECTION_(?:CHECK|REQUIRE)|\
       PKG_PREREQ|PKG_(?:NOARCH_)?INSTALLDIR)\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: &func-common
+      end: \)
+      beginCaptures:
+        '1': {name: keyword.other.macro.m4}
+        '2': {name: keyword.operator.function-call.m4}
+      endCaptures:
+        '0': {name: keyword.operator.function-call.m4}
     patterns:
       - include: '#ARGS-M'
   func-s:
     begin: "\\b(AC_CONFIG_COMMANDS_(?:PRE|POST)|AS_(?:ECHO(?:_N)?|UNSET)|\
       m4_(?:esyscmd(?:_s)?|syscmd)|\
       AT_(?:X?FAIL|SKIP)_IF)\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-S'
   func-mm:
@@ -363,45 +336,21 @@ repository:
       AM_MISSING_PROG|\
       GTK_DOC_CHECK|\
       IT_PROG_INTLTOOL)\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MM'
   func-ms:
     begin: "\\b(AC_(?:CACHE_VAL|DEFUN(?:_ONCE)?|SUBST)|\
       AS_(?:INIT_GENERATED|VAR_(?:ARITH|SET))|\
       AM_CONDITIONAL)\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MS'
   func-ss:
     begin: "\\b(AC_(?:F(?:77|C)_(?:DUMMY_MAIN|IMPLICIT_NONE)|\
       FC_(?:CHECK_BOUNDS|(?:FREE|FIXED)FORM|\
       MODULE_(?:OUTPUT_)?FLAG|PP_DEFINE)))\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-SS'
   func-mmm:
@@ -410,38 +359,17 @@ repository:
       m4_(?:append|bpatsubst|bregexp|eval|ifn?blank|ifn?def|ifset|ifvaln?|\
       map(?:all)?_sep|set_(?:empty|foreach)|substr|translit|version-prereq)|\
       AM_GNU_GETTEXT)\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMM'
   func-mms:
     begin: \b(AC_CACHE_CHECK|m4_foreach(?:_w)?)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMS'
   func-msm:
     begin: \b(AU_DEFUN)\s*(\()
-    end: \)
-    beginCaptures:
-      '1': {name: keyword.other.macro.m4}
-      '2': {name: keyword.operator.function-call.m4}
-    endCaptures:
-      '0': {name: keyword.operator.function-call.m4}
+    <<: *func-common
     patterns:
       - include: '#ARGS-MSM'
   func-mss:
@@ -451,15 +379,7 @@ repository:
       AS_VAR_SET_IF|\
       AM_(?:COND_IF|PATH_PYTHON|PROG_VALAC)|\
       PKG_CHECK_EXISTS)\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MSS'
   func-mmmm:
@@ -468,28 +388,12 @@ repository:
       AS_HELP_STRING|\
       m4_(?:map_args_w|set_(?:add|contains|map_sep|remove)|\
       stack_foreach_sep(?:_lifo)?|text|wrap))\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMMM'
   func-mmms:
     begin: \b(AC_COMPUTE_INT)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMMS'
   func-mmss:
@@ -497,132 +401,52 @@ repository:
       AS_VAR_IF|\
       AT_ARG_OPTION(?:_ARG)?|\
       PKG_CHECK_MODULES(?:_STATIC)?)\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMSS'
   func-mssm:
     begin: \b(AC_CHECK_(?:DECL|HEADER|MEMBER|TYPE)(?:S)?)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MSSM'
   func-msss:
     begin: \b(AC_RUN_IFELSE)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MSSS'
   func-ssss:
     begin: \b(AC_C_BIGENDIAN|AS_LITERAL_(?:WORD_)?IF)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-SSSS'
   func-mmmmm:
     begin: \b(m4_(?:append_uniq|for)|AC_INIT)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMMMM'
   func-mmmss:
     begin: \b(AT_CHECK_EUNIT|PKG_CHECK_VAR)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMMSS'
   func-mmssm:
     begin: \b(AC_(?:CHECK_LIB|SEARCH_LIBS|PATH_PROGS_FEATURE_CHECK))\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMSSM'
   func-mmsss:
     begin: \b(AS_VERSION_COMPARE)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMSSS'
   func-mmmmmm:
     begin: \b(AC_CHECK_PROG)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MMMMMM'
   func-smmmss:
     begin: \b(AT_CHECK(?:_UNQUOTED)?)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-SMMMSS'
   func-mvarargs:
@@ -631,28 +455,12 @@ repository:
       indir|join(?:all)?|makelist|map_args(?:_(?:pair|sep))?|max|min|\
       (?:un)?quote|reverse|set_add_all|shift(?:2|3|n)?|trace(?:off|on)|\
       undefine|undivert))\\s*(\\()"
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-MVARARGS'
   func-svarargs:
     begin: \b(AS_IF)\s*(\()
-    end: \)
-    beginCaptures:
-      '1':
-        name: keyword.other.macro.m4
-      '2':
-        name: keyword.operator.function-call.m4
-    endCaptures:
-      '0':
-        name: keyword.operator.function-call.m4
+    <<: *func-common
     patterns:
       - include: '#ARGS-SVARARGS'
   func-as-case:
