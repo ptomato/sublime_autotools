@@ -2004,11 +2004,11 @@
 								</dict>
 								<dict>
 									<key>include</key>
-									<string>source.shell.string</string>
+									<string>source.shell#string</string>
 								</dict>
 								<dict>
 									<key>include</key>
-									<string>source.shell.variable</string>
+									<string>source.shell#variable</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -2016,7 +2016,7 @@
 								</dict>
 								<dict>
 									<key>include</key>
-									<string>source.shell.interpolation</string>
+									<string>source.shell#interpolation</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -2024,7 +2024,7 @@
 								</dict>
 								<dict>
 									<key>include</key>
-									<string>source.shell.pathname</string>
+									<string>source.shell#pathname</string>
 								</dict>
 							</array>
 						</dict>
@@ -2072,7 +2072,7 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>source.shell.logical-expression</string>
+							<string>source.shell#logical-expression</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -2449,7 +2449,7 @@
 							<array>
 								<dict>
 									<key>include</key>
-									<string>source.shell.comment</string>
+									<string>source.shell#comment</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -2457,7 +2457,7 @@
 								</dict>
 								<dict>
 									<key>include</key>
-									<string>source.shell.case-clause</string>
+									<string>source.shell#case-clause</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -2582,7 +2582,7 @@
 		<key>shell-string</key>
 		<dict>
 			<key>comment</key>
-			<string>This is a copy of #string from source.shell so that we can include our doctored #shell-interpolation before source.shell.interpolation</string>
+			<string>This is a copy of #string from source.shell so that we can include our doctored #shell-interpolation before source.shell#interpolation</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -2618,7 +2618,7 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>source.shell.variable</string>
+							<string>source.shell#variable</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -2626,7 +2626,7 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>source.shell.interpolation</string>
+							<string>source.shell#interpolation</string>
 						</dict>
 					</array>
 				</dict>

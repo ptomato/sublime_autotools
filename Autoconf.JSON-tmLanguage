@@ -951,7 +951,7 @@
                         "1": { "name": "punctuation.definition.logical-expression.shell" }
                     },
                     "patterns": [
-                        { "include": "source.shell.logical-expression" },
+                        { "include": "source.shell#logical-expression" },
                         { "include": "$self" }
                     ]
                 },
@@ -1002,7 +1002,7 @@
         },
 
         "shell-string": {
-            "comment": "This is a copy of #string from source.shell so that we can include our doctored #shell-interpolation before source.shell.interpolation",
+            "comment": "This is a copy of #string from source.shell so that we can include our doctored #shell-interpolation before source.shell#interpolation",
             "patterns": [
                 {
                     "name": "string.quoted.double.shell",
@@ -1019,9 +1019,9 @@
                             "match": "\\\\[\\$`\"\\\\\\n]",
                             "name": "constant.character.escape.shell"
                         },
-                        { "include": "source.shell.variable" },
+                        { "include": "source.shell#variable" },
                         { "include": "#shell-interpolation" },
-                        { "include": "source.shell.interpolation" }
+                        { "include": "source.shell#interpolation" }
                     ]
                 }
             ]
@@ -1098,9 +1098,9 @@
                                 "1": { "name": "keyword.control.shell" }
                             },
                             "patterns": [
-                                { "include": "source.shell.comment" },
+                                { "include": "source.shell#comment" },
                                 { "include": "#shell-case-clause" },
-                                { "include": "source.shell.case-clause" },
+                                { "include": "source.shell#case-clause" },
                                 { "include": "$self" }
                             ]
                         },
@@ -1182,12 +1182,12 @@
                                     "name": "punctuation.separator.pipe-sign.shell"
                                 },
                                 { "include": "#shell-string" },
-                                { "include": "source.shell.string" },
-                                { "include": "source.shell.variable" },
+                                { "include": "source.shell#string" },
+                                { "include": "source.shell#variable" },
                                 { "include": "#shell-interpolation" },
-                                { "include": "source.shell.interpolation" },
+                                { "include": "source.shell#interpolation" },
                                 { "include": "#shell-pathname" },
-                                { "include": "source.shell.pathname" }
+                                { "include": "source.shell#pathname" }
                             ]
                         },
                         {
