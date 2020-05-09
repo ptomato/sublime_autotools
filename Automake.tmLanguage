@@ -69,8 +69,6 @@
 	<dict>
 		<key>assignment-rhs</key>
 		<dict>
-			<key>comment</key>
-			<string>What is allowed on the right-hand-side of an assignment</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -79,11 +77,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#variable-reference</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#shell-variable-reference</string>
+					<string>#variables</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -105,23 +99,29 @@
 					<key>include</key>
 					<string>#substitution</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escaped-newline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
 			</array>
 		</dict>
 		<key>automatic-variable</key>
 		<dict>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>match</key>
 			<string>\$([@%&lt;?^+*]|\([@*%&lt;^?][DF]\))</string>
 			<key>name</key>
 			<string>variable.language.makefile</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>backtick-subshell</key>
 		<dict>
 			<key>begin</key>
 			<string>`</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>end</key>
 			<string>`</string>
 			<key>name</key>
@@ -134,7 +134,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#variable-reference</string>
+					<string>#variables</string>
 				</dict>
 			</array>
 		</dict>
@@ -142,8 +142,6 @@
 		<dict>
 			<key>begin</key>
 			<string>#</string>
-			<key>comment</key>
-			<string>Copy of makefile's comment, but substitutions are allowed</string>
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
@@ -178,8 +176,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a directory variable (e.g. foobardir)</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -196,8 +192,6 @@
 		<dict>
 			<key>begin</key>
 			<string>"</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>end</key>
 			<string>"</string>
 			<key>name</key>
@@ -212,12 +206,21 @@
 		</dict>
 		<key>escaped-char</key>
 		<dict>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>match</key>
 			<string>\\.</string>
 			<key>name</key>
 			<string>constant.character.escape.makefile</string>
+			<key>patterns</key>
+			<array/>
+		</dict>
+		<key>escaped-newline</key>
+		<dict>
+			<key>match</key>
+			<string>\\$</string>
+			<key>name</key>
+			<string>constant.character.escape.automake</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>flags-assignment</key>
 		<dict>
@@ -236,8 +239,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a FLAGS variable</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -267,8 +268,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a non-primary, secondary, flags, or dir variable</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -285,12 +284,12 @@
 		<dict>
 			<key>begin</key>
 			<string>^##</string>
-			<key>comment</key>
-			<string>Lines starting with ## are not copied into Makefile.in, and no substitutions are performed</string>
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
 			<string>comment.line.double-number-sign.automake</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>primary-assignment</key>
 		<dict>
@@ -329,8 +328,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a primary: any number of prefixes_, then either a nondir target (e.g. noinst), a dir target (e.g. bin), or a user-defined dir, then finally a _PRIMARY</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -370,8 +367,6 @@
 					<string>keyword.operator.assignment.automake</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Assignment to a secondary: any number of prefix_ or EXTRA_, then the canonicalized_program_name, and finally a _SECONDARY</string>
 			<key>end</key>
 			<string>(?&lt;!\\)\n$</string>
 			<key>name</key>
@@ -388,19 +383,26 @@
 		<dict>
 			<key>begin</key>
 			<string>\$\{</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>contentName</key>
 			<string>variable.other.shell.makefile</string>
 			<key>end</key>
 			<string>\}</string>
+			<key>patterns</key>
+			<array/>
+		</dict>
+		<key>simple-variable</key>
+		<dict>
+			<key>match</key>
+			<string>\$\$?\w+</string>
+			<key>name</key>
+			<string>variable.other.shell.makefile</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>single-quoted-string</key>
 		<dict>
 			<key>begin</key>
 			<string>'</string>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>end</key>
 			<string>'</string>
 			<key>name</key>
@@ -415,8 +417,6 @@
 		</dict>
 		<key>special-assignment</key>
 		<dict>
-			<key>comment</key>
-			<string>The contexts listed here represent an assignment to an Automake variable</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -443,39 +443,23 @@
 		</dict>
 		<key>substitution</key>
 		<dict>
-			<key>comment</key>
-			<string>Substitutions from AC_SUBST</string>
 			<key>match</key>
 			<string>@\w+@</string>
 			<key>name</key>
 			<string>string.interpolated.substitution.automake</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>variable-reference</key>
 		<dict>
 			<key>begin</key>
 			<string>\$\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.makefile</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Copy of Makefile</string>
 			<key>contentName</key>
 			<string>variable.other.makefile</string>
 			<key>end</key>
 			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.makefile</string>
-				</dict>
-			</dict>
+			<key>name</key>
+			<string>string.interpolated.makefile</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -502,10 +486,47 @@
 					<string>string.other.substitution.makefile</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>(?&lt;=\$\()(addprefix|addsuffix|basename|call|dir|error|filter(-out)?|findstring|firstword|foreach|join|notdir|origin|patsubst|shell|sort|strip|subst|suffix|warning|wildcard|words?)\b</string>
+					<key>begin</key>
+					<string>(?&lt;=\$\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter(-out)?|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|words?)\b</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.makefile</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>string.interpolated.makefile</string>
+					<key>end</key>
+					<string>(?=\))</string>
 					<key>name</key>
-					<string>support.function.makefile</string>
+					<string>meta.scope.function.makefile</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>variables</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#shell-variable-reference</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable-reference</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#simple-variable</string>
 				</dict>
 			</array>
 		</dict>

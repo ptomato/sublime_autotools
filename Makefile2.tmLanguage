@@ -17,30 +17,31 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>begin</key>
-			<string>#</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.makefile</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>$\n?</string>
-			<key>name</key>
-			<string>comment.line.number-sign.makefile</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>(?&lt;!\\)\\$\n</string>
-					<key>name</key>
-					<string>punctuation.separator.continuation.makefile</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#comment</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#assignment</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#rule</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^(\-??include|if|ifeq|ifneq|ifdef|ifndef|else|endif|vpath|export|unexport|define|endef|override)\b</string>
+			<key>name</key>
+			<string>keyword.control.makefile</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#variables</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>assignment</key>
 		<dict>
 			<key>begin</key>
 			<string>^([a-zA-Z_][a-zA-Z0-9_]*)\s*([\+\?:]?=)</string>
@@ -69,11 +70,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#variable-reference</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#shell-variable-reference</string>
+					<string>#variables</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -93,6 +90,87 @@
 				</dict>
 			</array>
 		</dict>
+		<key>automatic-variable</key>
+		<dict>
+			<key>match</key>
+			<string>\$([@%&lt;?^+*]|\([@*%&lt;^?][DF]\))</string>
+			<key>name</key>
+			<string>variable.language.makefile</string>
+			<key>patterns</key>
+			<array/>
+		</dict>
+		<key>backtick-subshell</key>
+		<dict>
+			<key>begin</key>
+			<string>`</string>
+			<key>end</key>
+			<string>`</string>
+			<key>name</key>
+			<string>string.interpolated.backtick.makefile</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.shell</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variables</string>
+				</dict>
+			</array>
+		</dict>
+		<key>comment</key>
+		<dict>
+			<key>begin</key>
+			<string>#</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.makefile</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$\n?</string>
+			<key>name</key>
+			<string>comment.line.number-sign.makefile</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\\)\\$\n</string>
+					<key>name</key>
+					<string>punctuation.separator.continuation.makefile</string>
+				</dict>
+			</array>
+		</dict>
+		<key>double-quoted-string</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double.makefile</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#escaped-char</string>
+				</dict>
+			</array>
+		</dict>
+		<key>escaped-char</key>
+		<dict>
+			<key>match</key>
+			<string>\\.</string>
+			<key>name</key>
+			<string>constant.character.escape.makefile</string>
+			<key>patterns</key>
+			<array/>
+		</dict>
+		<key>rule</key>
 		<dict>
 			<key>begin</key>
 			<string>^([^\t\:][^\:]*)\:</string>
@@ -139,69 +217,6 @@
 				</dict>
 			</array>
 		</dict>
-		<dict>
-			<key>match</key>
-			<string>^(\-??include|if|ifeq|ifneq|ifdef|ifndef|else|endif|vpath|export|unexport|define|endef|override)\b</string>
-			<key>name</key>
-			<string>keyword.control.makefile</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#variable-reference</string>
-		</dict>
-	</array>
-	<key>repository</key>
-	<dict>
-		<key>automatic-variable</key>
-		<dict>
-			<key>match</key>
-			<string>\$([@%&lt;?^+*]|\([@*%&lt;^?][DF]\))</string>
-			<key>name</key>
-			<string>variable.language.makefile</string>
-		</dict>
-		<key>backtick-subshell</key>
-		<dict>
-			<key>begin</key>
-			<string>`</string>
-			<key>end</key>
-			<string>`</string>
-			<key>name</key>
-			<string>string.interpolated.backtick.makefile</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>source.shell</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#variable-reference</string>
-				</dict>
-			</array>
-		</dict>
-		<key>double-quoted-string</key>
-		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>end</key>
-			<string>"</string>
-			<key>name</key>
-			<string>string.quoted.double.makefile</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#escaped-char</string>
-				</dict>
-			</array>
-		</dict>
-		<key>escaped-char</key>
-		<dict>
-			<key>match</key>
-			<string>\\.</string>
-			<key>name</key>
-			<string>constant.character.escape.makefile</string>
-		</dict>
 		<key>shell-variable-reference</key>
 		<dict>
 			<key>begin</key>
@@ -210,6 +225,17 @@
 			<string>variable.other.shell.makefile</string>
 			<key>end</key>
 			<string>\}</string>
+			<key>patterns</key>
+			<array/>
+		</dict>
+		<key>simple-variable</key>
+		<dict>
+			<key>match</key>
+			<string>\$\$?\w+</string>
+			<key>name</key>
+			<string>variable.other.shell.makefile</string>
+			<key>patterns</key>
+			<array/>
 		</dict>
 		<key>single-quoted-string</key>
 		<dict>
@@ -231,26 +257,12 @@
 		<dict>
 			<key>begin</key>
 			<string>\$\(</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.makefile</string>
-				</dict>
-			</dict>
 			<key>contentName</key>
 			<string>variable.other.makefile</string>
 			<key>end</key>
 			<string>\)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.operator.makefile</string>
-				</dict>
-			</dict>
+			<key>name</key>
+			<string>string.interpolated.makefile</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -277,10 +289,47 @@
 					<string>string.other.substitution.makefile</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>(?&lt;=\$\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter|filter-out|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|word|words)\b</string>
+					<key>begin</key>
+					<string>(?&lt;=\$\()(addprefix|addsuffix|and|basename|call|dir|error|eval|file|filter(-out)?|findstring|firstword|flavor|foreach|guile|if|info|join|notdir|or|origin|patsubst|shell|sort|strip|subst|suffix|value|warning|wildcard|words?)\b</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.makefile</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>string.interpolated.makefile</string>
+					<key>end</key>
+					<string>(?=\))</string>
 					<key>name</key>
-					<string>support.function.makefile</string>
+					<string>meta.scope.function.makefile</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>variables</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#shell-variable-variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable-reference</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#simple-variable</string>
 				</dict>
 			</array>
 		</dict>
