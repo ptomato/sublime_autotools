@@ -7,6 +7,7 @@
 		<string>configure.ac</string>
 		<string>configure.in</string>
 		<string>m4</string>
+		<string>at</string>
 	</array>
 	<key>name</key>
 	<string>Autoconf M4</string>

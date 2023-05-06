@@ -9,6 +9,7 @@ fileTypes:
   - configure.ac
   - configure.in
   - m4
+  - at
 
 repository:
   # M4 basic syntax
