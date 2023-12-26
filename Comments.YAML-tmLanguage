@@ -1,0 +1,7 @@
+name: Comments
+uuid: 2fa79ee4-c206-4520-a73a-b05a0246b707
+scope:
+settings:
+  shellVariables:
+  - name: TM_COMMENT_START
+    value: '# '
